@@ -1,0 +1,323 @@
+[data-theme = "light"] {
+    --primary: #FFFFFF;
+    --secondary: rgba(0, 0, 0, 0.1);
+    --text: #000000;
+}
+
+[data-theme = "dark"] {
+    --primary: #0d0d0d;
+    --secondary: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('/public/OverusedGrotesk-Light.woff2');
+}
+
+.notch-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notch {
+    width: fit-content;
+    padding-left: 7px;
+    padding-right: 7px;
+    gap: 5px;
+    height: 60px;
+    background-color: var(--primary);
+    border-radius: 0px 0px 24px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    opacity: 0%;
+    transition: all cubic-bezier(.25,.11,.25,.99) 200ms;
+    translate: 0px -50px;
+}
+
+.hide:hover {
+    opacity: 100%;
+    translate: 0px 0px;
+}
+
+.timer-card {
+    width: 109px;
+    height: 48px;
+    background-color: var(--secondary);
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-text {
+    color: var(--text);
+    font-size: 30px;
+    font-family: 'Overused Grotesk';
+    font-weight: 610;
+    user-select: none;
+}
+
+.button {
+    all: unset;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: var(--secondary);
+}
+
+.button-icon {
+    color: var(--text);
+}
+
+.minimal {
+    position: absolute;
+    color: white;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    margin-top: 17px;
+    font-family: 'Overused Grotesk';
+    font-weight: 700;
+    opacity: 50%;
+    text-shadow: 0px 0px 5px black;
+    z-index: -3;
+}
+
+@keyframes editMenuEnter {
+    0% {
+        filter: blur(10px);
+        transform: translate(0px, -15px);
+        opacity: 0%;
+    } 100% {
+        filter: blur(0px);
+        transform: translate(0px, 0px);
+        opacity: 100%;
+    }
+}
+
+.edit-card {
+    width: 501px;
+    height: 315px;
+    margin-top: 15px;
+    background-color: var(--primary);
+    position: relative;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.edit-card-anim {
+    animation: editMenuEnter 200ms cubic-bezier(.25,.11,.25,.99);
+}
+
+.edit-switch-item {
+    color: var(--text);
+    font-family: 'Overused Grotesk';
+    font-weight: 525;
+    background-color: rgba(255, 255, 255, 0);
+    width: fit-content;
+    height: fit-content;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.edit-switch-item:hover {
+    background-color: var(--secondary);
+}
+
+.edit-switch-item-active {
+    color: var(--text);
+    font-family: 'Overused Grotesk';
+    font-weight: 525;
+    background-color: var(--secondary);
+    width: fit-content;
+    height: fit-content;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.edit-switch-menu {
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.edit-time {
+    font-family: 'Overused Grotesk';
+    font-weight: 900;
+    color: var(--text);
+    font-size: 64px;
+}
+
+.edit-time-tip {
+    font-family: 'Overused Grotesk';
+    font-weight: 500;
+    color: var(--text);
+    font-size: 20px;
+}
+
+.edit-time-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 457px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--secondary);
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 55px;
+    height: 55px;
+    background: url('/public/slider-handle.svg');
+}
+
+.slider::-moz-range-thumb {
+    width: 55px;
+    height: 55px;
+    background: url('/public/slider-handle.svg');
+}
+
+.slider::-ms-thumb {
+    width: 55px;
+    height: 55px;
+    background: url('/public/slider-handle.svg');
+}
+
+.slider::-webkit-slider-runnable-track {
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--secondary);
+}
+
+.slider::-moz-range-track {
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--secondary);
+}
+
+.slider::-ms-track {
+    height: 55px;
+    border-radius: 15px;
+    background-color: var(--secondary);
+    border-color: transparent;
+    color: transparent;
+}
+
+.slider::-ms-fill-lower {
+    background-color: var(--secondary);
+    border-radius: 15px;
+}
+
+.slider::-ms-fill-upper {
+    background-color: var(--secondary);
+    border-radius: 15px;
+}
+
+.slider-display {
+    color: var(--text);
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.edit-timer-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.edit-appearance-option-light {
+    background-color: white;
+    color: #0d0d0d;
+    width: 219px;
+    height: 126px;
+    font-family: 'Overused Grotesk';
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+.edit-appearance-option-dark {
+    background-color: #0d0d0d;
+    color: white;
+    width: 219px;
+    height: 126px;
+    font-family: 'Overused Grotesk';
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: solid 1px white;
+    cursor: pointer;
+}
+
+.edit-appearance-option-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    height: 198px;
+}
