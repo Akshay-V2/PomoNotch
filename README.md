@@ -1,7 +1,21 @@
-# Tauri + React
 
-This template should help get you started developing with Tauri and React in Vite.
+![Logo](assets/icon.png)
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+# PomoNotch
+A Pomodoro timer that looks like a notch for your monitor. A minimal and non-distracting way to focus.
+
+
+## Features
+
+- Customizable Timer
+- Light and Dark Mode (More themes coming soon)
+- Minimal Mode
+
+
+## Roadmap
+
+- Linux and Mac Builds
+- Custom Themes
+- Animation Overhaul
+
