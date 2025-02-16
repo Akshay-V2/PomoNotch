@@ -78,10 +78,12 @@ function App() {
   // timer
   const [time, setTime] = useState(30 * 60);
   const [isActive, setIsActive] = useState(false);
+  const [isEnded, setIsEnded] = useState(true);
   const intervalRef = useRef(null);
 
   useEffect(() => {
     if (isActive && time > 0) {
+      setIsEnded(false);
       intervalRef.current = setInterval(() => {
         setTime(prevTime => {
           if (prevTime <= 1) {
@@ -103,7 +105,15 @@ function App() {
     setIsActive(!isActive);
   };
 
+  const alertEditMode = () => {
+    document.getElementById("editButton").classList.add('button-indic-anim');
+    setTimeout(() => {
+      document.getElementById("editButton").classList.remove('button-indic-anim');
+    }, 300);
+  }
+
   const handleResetClick = () => {
+    setIsEnded(true);
     setIsActive(false);
     setTime(30 * 60);
   };
@@ -120,9 +130,9 @@ function App() {
 
     <div className="notch-wrapper">
       <div className={isActive ? "notch hide" : "notch"}>
-        {isActive ? <button className="button" onClick={handleResetClick}><ClockClockwise size={24} weight="fill" className="button-icon" /></button> : <button className="button" onClick={resizeEdit}><PencilSimple size={24} weight="fill" className="button-icon" /></button>}
+        {isEnded ? <button className="button" id="editButton" onClick={resizeEdit}><PencilSimple size={24} weight="fill" className="button-icon" /></button> : <button className="button" onClick={handleResetClick}><ClockClockwise size={24} weight="fill" className="button-icon" /></button>}
         <div className="timer-card"><div className="timer-text">{isEditMode ? formatTime(value) : formatTime(time)}</div></div>
-        <button className="button" onClick={isEditMode ? null : handlePlayPauseClick}>{isActive ? <Pause size={24} weight="fill" className="button-icon" /> : <Play size={24} weight="fill" className="button-icon" />}</button>
+        <button className="button" onClick={isEditMode ? alertEditMode : handlePlayPauseClick}>{isActive ? <Pause size={24} weight="fill" className="button-icon" /> : <Play size={24} weight="fill" className="button-icon" />}</button>
       </div>
     </div>
 

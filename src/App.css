@@ -70,6 +70,16 @@ body {
     user-select: none;
 }
 
+@keyframes button-indic-anim {
+    0% {
+        border: solid var(--text) 0px;
+    } 50% {
+        border: solid var(--text) 3px;
+    } 100% {
+        border: solid var(--text) 0px;
+    }
+}
+
 .button {
     all: unset;
     width: 48px;
@@ -79,6 +89,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+}
+
+.button-indic-anim {
+    animation: button-indic-anim 300ms ease-in-out;
 }
 
 .button:hover {
