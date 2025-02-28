@@ -21,8 +21,8 @@ body {
 }
 
 @font-face {
-    font-family: 'Overused Grotesk';
-    src: url('/public/OverusedGrotesk-Light.woff2');
+    font-family: 'Raveo';
+    src: url('/public/RaveoVF.woff2');
 }
 
 .notch-wrapper {
@@ -69,7 +69,7 @@ body {
 .timer-text {
     color: var(--text);
     font-size: 30px;
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 610;
     user-select: none;
 }
@@ -113,8 +113,8 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 17px;
-    font-family: 'Overused Grotesk';
-    font-weight: 700;
+    font-family: 'Raveo';
+    font-weight: 500;
     opacity: 50%;
     text-shadow: 0px 0px 5px black;
     z-index: -3;
@@ -152,7 +152,7 @@ body {
 
 .edit-switch-item {
     color: var(--text);
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 525;
     background-color: rgba(255, 255, 255, 0);
     width: fit-content;
@@ -174,7 +174,7 @@ body {
 
 .edit-switch-item-active {
     color: var(--text);
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 525;
     background-color: var(--secondary);
     width: fit-content;
@@ -202,14 +202,14 @@ body {
 }
 
 .edit-time {
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 900;
     color: var(--text);
     font-size: 64px;
 }
 
 .edit-time-tip {
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 500;
     color: var(--text);
     font-size: 20px;
@@ -302,7 +302,7 @@ body {
     color: #0d0d0d;
     width: 219px;
     height: 126px;
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 800;
     display: flex;
     justify-content: center;
@@ -319,7 +319,7 @@ body {
     color: white;
     width: 219px;
     height: 126px;
-    font-family: 'Overused Grotesk';
+    font-family: 'Raveo';
     font-weight: 800;
     display: flex;
     justify-content: center;
