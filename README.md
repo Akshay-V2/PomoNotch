@@ -13,9 +13,9 @@ A Pomodoro timer that looks like a notch for your monitor. A minimal and non-dis
 - Minimal Mode
 
 
-## Roadmap
-
-- Linux and Mac Builds
-- Custom Themes
-- Animation Overhaul
-
+## Upcoming Updates
+- Ui Redesign
+- Calendar Support 
+- To Do List
+- Habit Tracker
+- Multiplatform Support ?
