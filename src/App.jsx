@@ -12,17 +12,17 @@ function App() {
   // let switchSFX = new Audio('/switch.mp3');
 
   //theme
-  // const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : "dark");
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : "dark");
 
-  // const handleThemeChange = (themeNew) => {
-  //   if (themeNew === "light") {
-  //     setTheme("light");
-  //     localStorage.setItem('theme', 'light');
-  //   } else if (themeNew === "dark") {
-  //     setTheme("dark");
-  //     localStorage.setItem('theme', 'dark');
-  //   }
-  // }
+  const handleThemeChange = (themeNew) => {
+    if (themeNew === "light") {
+      setTheme("light");
+      localStorage.setItem('theme', 'light');
+    } else if (themeNew === "dark") {
+      setTheme("dark");
+      localStorage.setItem('theme', 'dark');
+    }
+  }
 
   useEffect(() => {
     if (theme === "light") {
@@ -52,12 +52,14 @@ function App() {
 
   const resizeEdit = () => {
     if (windowMode === "edit") {
+      document.querySelector('.edit-card').classList.remove('edit-card-anim');
       handleResize(229, 60);
       setWindowMode("default");
       setIsEditMode(false);
       moveWindow(Position.TopCenter);
       setTime(value);
     } else {
+      document.querySelector('.edit-card').classList.add('edit-card-anim');
       handleResize(501, 390);
       setWindowMode("edit");
       setIsEditMode(true);
@@ -103,6 +105,13 @@ function App() {
     setIsActive(!isActive);
   };
 
+  const alertEditMode = () => {
+    document.getElementById("editButton").classList.add('button-indic-anim');
+    setTimeout(() => {
+      document.getElementById("editButton").classList.remove('button-indic-anim');
+    }, 300);
+  }
+
   const handleResetClick = () => {
     setIsEnded(true);
     setIsActive(false);
@@ -117,7 +126,35 @@ function App() {
 
   return (
     <>
-    <div>Hellos</div>
+    <div className="minimal">{formatTime(time)}</div>
+
+    <div className="notch-wrapper">
+      <div className={isActive ? "notch hide" : "notch"}>
+        {isEnded ? <button className="button" id="editButton" onClick={resizeEdit}><PencilSimple size={24} weight="fill" className="button-icon" /></button> : <button className="button" onClick={handleResetClick}><ClockClockwise size={24} weight="fill" className="button-icon" /></button>}
+        <div className="timer-card"><div className="timer-text">{isEditMode ? formatTime(value) : formatTime(time)}</div></div>
+        <button className="button" onClick={isEditMode ? alertEditMode : handlePlayPauseClick}>{isActive ? <Pause size={24} weight="fill" className="button-icon" /> : <Play size={24} weight="fill" className="button-icon" />}</button>
+      </div>
+    </div>
+
+    <div className="edit-card">
+      <div className="edit-switch-menu">
+        <div className={mode == "timer" ? "edit-switch-item-active" : "edit-switch-item"} onClick={() => {handleModeChange("timer")}}>Timer</div>
+        <div className={mode == "appearance" ? "edit-switch-item-active" : "edit-switch-item"} onClick={() => {handleModeChange("appearance")}}>Appearance</div>
+        {/* <div className={mode == "sounds" ? "edit-switch-item-active" : "edit-switch-item"} onClick={() => {handleModeChange("sounds")}}>Sounds</div> */}
+      </div>
+
+    {mode == "timer" ? (<div className="edit-timer-option">
+        <div className="edit-time-wrapper">
+          <div className="edit-time">{formatTime(value)}</div>
+          <div className="edit-time-tip">Ok you got this ✨</div>
+        </div>
+
+        <input type="range" min="300" max="3600" step={5*60} value={value} onChange={(e) => setValue(e.target.value)} class="slider" id="myRange" />
+      </div> ) : mode == "appearance" ? ( <div className="edit-appearance-option-wrapper">
+        <div className="edit-appearance-option-light" onClick={() => {handleThemeChange("light")}}>{formatTime(time)}</div>
+        <div className="edit-appearance-option-dark" onClick={() => {handleThemeChange("dark")}}>{formatTime(time)}</div> 
+      </div> ) : null}
+    </div>
     </>
 
   );
